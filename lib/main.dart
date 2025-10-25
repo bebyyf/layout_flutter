@@ -7,7 +7,10 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      routes: {'/': (context) => HomePage(), '/item': (context) => ItemPage()},
+      routes: {
+        '/': (context) => HomePage(),
+        '/item': (context) => const ItemPage(),
+      },
     ),
   );
 }

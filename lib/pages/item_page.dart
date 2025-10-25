@@ -41,6 +41,22 @@ class ItemPage extends StatelessWidget {
                     color: Colors.green,
                   ),
                 ),
+                const SizedBox(height: 20),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.pop(context); // kembali ke HomePage
+                  },
+                  icon: const Icon(Icons.arrow_back),
+                  label: const Text("Kembali ke Home"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

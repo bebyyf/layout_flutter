@@ -55,7 +55,11 @@ HASIL OUTPUT
 
 2. Pembacaan nilai yang dikirimkan pada halaman sebelumnya dapat dilakukan menggunakan ModalRoute. Tambahkan kode berikut pada blok fungsi build dalam halaman ItemPage. Setelah nilai didapatkan, anda dapat menggunakannya seperti penggunaan variabel pada umumnya. 
 (https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments) 
+![Screenshot](images/ss16.png)
+HASIL OUTPUT
+![Screenshot](images/ss17.png)
 
+3. Pada hasil akhir dari aplikasi belanja yang telah anda selesaikan, tambahkan atribut foto produk, stok, dan rating. Ubahlah tampilan menjadi GridView seperti di aplikasi marketplace pada umumnya.
 
 
 
