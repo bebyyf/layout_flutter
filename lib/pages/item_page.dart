@@ -6,7 +6,6 @@ class ItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ambil data yang dikirim dari HomePage
     final Item item = ModalRoute.of(context)!.settings.arguments as Item;
 
     return Scaffold(
@@ -16,7 +15,7 @@ class ItemPage extends StatelessWidget {
       ),
       body: Center(
         child: Card(
-          elevation: 4,
+          elevation: 5,
           margin: const EdgeInsets.all(20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -26,14 +25,14 @@ class ItemPage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                Image.asset(item.image, height: 150),
+                const SizedBox(height: 10),
                 Text(
                   item.name,
                   style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 Text(
                   'Harga: Rp ${item.price}',
                   style: const TextStyle(
@@ -41,20 +40,27 @@ class ItemPage extends StatelessWidget {
                     color: Colors.green,
                   ),
                 ),
+                const SizedBox(height: 8),
+                Text('Stok: ${item.stock}', style: const TextStyle(fontSize: 16)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.star, color: Colors.orange),
+                    Text(item.rating.toString()),
+                  ],
+                ),
                 const SizedBox(height: 20),
                 ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.pop(context); // kembali ke HomePage
+                    Navigator.pop(context);
                   },
                   icon: const Icon(Icons.arrow_back),
-                  label: const Text("Kembali ke Home"),
+                  label: const Text('Kembali ke Home'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   ),
                 ),
               ],

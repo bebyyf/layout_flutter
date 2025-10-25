@@ -60,6 +60,12 @@ HASIL OUTPUT
 ![Screenshot](images/ss17.png)
 
 3. Pada hasil akhir dari aplikasi belanja yang telah anda selesaikan, tambahkan atribut foto produk, stok, dan rating. Ubahlah tampilan menjadi GridView seperti di aplikasi marketplace pada umumnya.
+![Screenshot](images/ss18.png)
+![Screenshot](images/ss19.png)
+
+4. Silakan implementasikan Hero widget pada aplikasi belanja Anda dengan mempelajari dari sumber ini: https://docs.flutter.dev/cookbook/navigation/hero-animations
+
+
 
 
 

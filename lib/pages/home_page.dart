@@ -6,29 +6,57 @@ class HomePage extends StatelessWidget {
 
   // Daftar data item
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000),
-    Item(name: 'Salt', price: 2000),
-    Item(name: 'Coffee', price: 10000),
-    Item(name: 'Rice', price: 12000),
+    Item(
+      name: 'Sugar',
+      price: 5000,
+      image: 'images/sugar.png',
+      stock: 50,
+      rating: 4.5,
+    ),
+    Item(
+      name: 'Salt',
+      price: 2000,
+      image: 'images/salt.png',
+      stock: 80,
+      rating: 4.2,
+    ),
+    Item(
+      name: 'Coffee',
+      price: 10000,
+      image: 'images/coffee.png',
+      stock: 30,
+      rating: 4.8,
+    ),
+    Item(
+      name: 'Rice',
+      price: 12000,
+      image: 'images/rice.png',
+      stock: 100,
+      rating: 4.7,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text('Belanja App'),
         backgroundColor: Colors.blue,
       ),
-      body: Container(
-        margin: const EdgeInsets.all(8),
-        child: ListView.builder(
-          padding: const EdgeInsets.all(8),
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: GridView.builder(
           itemCount: items.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // 2 kolom
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 0.75,
+          ),
           itemBuilder: (context, index) {
             final item = items[index];
             return InkWell(
               onTap: () {
-                // Navigasi ke halaman ItemPage sambil kirim data
                 Navigator.pushNamed(
                   context,
                   '/item',
@@ -36,36 +64,65 @@ class HomePage extends StatelessWidget {
                 );
               },
               child: Card(
-                elevation: 3,
+                elevation: 4,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                child: Container(
-                  margin: const EdgeInsets.all(12),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          item.name,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      flex: 6,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(12),
+                        ),
+                        child: Image.asset(
+                          item.image,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
                         ),
                       ),
-                      Expanded(
-                        child: Text(
-                          'Rp ${item.price}',
-                          textAlign: TextAlign.end,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green,
-                          ),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              item.name,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              'Rp ${item.price}',
+                              style: const TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text('Stok: ${item.stock}'),
+                            const SizedBox(height: 4),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(Icons.star,
+                                    color: Colors.orange, size: 16),
+                                Text(item.rating.toString()),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             );
