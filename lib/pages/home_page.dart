@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../models/item.dart';
 import '../widgets/item_card.dart';
 import '../widgets/footer.dart';
-
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -17,7 +17,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         title: const Text('Aplikasi Belanja'),
         backgroundColor: Colors.blueAccent,
@@ -40,15 +39,13 @@ class HomePage extends StatelessWidget {
                   final item = items[index];
                   return ItemCard(
                     item: item,
-                    onTap: () {
-                      Navigator.pushNamed(context, '/item', arguments: item);
-                    },
+                    onTap: () => context.push('/item', extra: item), // <--- pakai go_router
                   );
                 },
               ),
             ),
           ),
-          const Footer(), // Footer di bawah
+          const Footer(),
         ],
       ),
     );

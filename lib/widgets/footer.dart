@@ -10,7 +10,7 @@ class Footer extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       child: const Center(
         child: Text(
-          'Dibuat oleh: My Babby Findia R.S - NIM: 2341760007',
+          'Dibuat oleh: Babby Findia - NIM: 2341760007', 
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
