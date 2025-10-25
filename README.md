@@ -41,6 +41,21 @@ Jalankan aplikasi kembali dan pastikan ListView dapat disentuh dan berpindah ke 
 ![Screenshot](images/ss10.png)
 ![Screenshot](images/ss11.png)
 
+Tugas Praktikum 2
+1.	Untuk melakukan pengiriman data ke halaman berikutnya, cukup menambahkan informasi arguments pada penggunaan Navigator. Perbarui kode pada bagian Navigator menjadi seperti berikut.
+
+home_page.dart
+![Screenshot](images/ss12.png)
+item_page.dart
+![Screenshot](images/ss13.png)
+
+HASIL OUTPUT
+![Screenshot](images/ss14.png)
+![Screenshot](images/ss15.png)
+
+2. Pembacaan nilai yang dikirimkan pada halaman sebelumnya dapat dilakukan menggunakan ModalRoute. Tambahkan kode berikut pada blok fungsi build dalam halaman ItemPage. Setelah nilai didapatkan, anda dapat menggunakannya seperti penggunaan variabel pada umumnya. 
+(https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments) 
+
 
 
 

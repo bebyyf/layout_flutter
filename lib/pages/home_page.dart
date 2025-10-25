@@ -28,7 +28,11 @@ class HomePage extends StatelessWidget {
             final item = items[index];
             return InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/item');
+                Navigator.pushNamed(
+                  context,
+                  '/item',
+                  arguments: item, // ⬅ kirim data ke halaman ItemPage
+                );
               },
               child: Card(
                 elevation: 3,
