@@ -64,7 +64,7 @@ HASIL OUTPUT
 ![Screenshot](images/ss19.png)
 
 4. Silakan implementasikan Hero widget pada aplikasi belanja Anda dengan mempelajari dari sumber ini: https://docs.flutter.dev/cookbook/navigation/hero-animations
-
+![Screenshot](images/ss20.png)
 
 
 

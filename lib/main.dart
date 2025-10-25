@@ -6,6 +6,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Aplikasi Belanja',
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),

@@ -6,52 +6,29 @@ class HomePage extends StatelessWidget {
 
   // Daftar data item
   final List<Item> items = [
-    Item(
-      name: 'Sugar',
-      price: 5000,
-      image: 'images/sugar.png',
-      stock: 50,
-      rating: 4.5,
-    ),
-    Item(
-      name: 'Salt',
-      price: 2000,
-      image: 'images/salt.png',
-      stock: 80,
-      rating: 4.2,
-    ),
-    Item(
-      name: 'Coffee',
-      price: 10000,
-      image: 'images/coffee.png',
-      stock: 30,
-      rating: 4.8,
-    ),
-    Item(
-      name: 'Rice',
-      price: 12000,
-      image: 'images/rice.png',
-      stock: 100,
-      rating: 4.7,
-    ),
+    Item(name: 'Sugar', price: 5000, image: 'images/sugar.png', stock: 10, rating: 4.5),
+    Item(name: 'Salt', price: 2000, image: 'images/salt.png', stock: 20, rating: 4.8),
+    Item(name: 'Coffee', price: 10000, image: 'images/coffee.png', stock: 15, rating: 4.9),
+    Item(name: 'Rice', price: 12000, image: 'images/rice.png', stock: 30, rating: 4.7),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Belanja App'),
+        title: const Text('Toko Belanja'),
         backgroundColor: Colors.blue,
+        centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
           itemCount: items.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // 2 kolom
-            mainAxisSpacing: 10,
+            crossAxisCount: 2, // jumlah kolom
             crossAxisSpacing: 10,
-            childAspectRatio: 0.75,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.8,
           ),
           itemBuilder: (context, index) {
             final item = items[index];
@@ -64,23 +41,23 @@ class HomePage extends StatelessWidget {
                 );
               },
               child: Card(
-                elevation: 4,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(15),
                 ),
+                elevation: 3,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
                       flex: 6,
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(12),
-                        ),
-                        child: Image.asset(
-                          item.image,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
+                        borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                        child: Hero(
+                          tag: item.name, // animasi Hero
+                          child: Image.asset(
+                            item.image,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
@@ -89,7 +66,7 @@ class HomePage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               item.name,
@@ -97,25 +74,27 @@ class HomePage extends StatelessWidget {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
-                              textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 4),
                             Text(
                               'Rp ${item.price}',
                               style: const TextStyle(
+                                fontSize: 14,
                                 color: Colors.green,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             const SizedBox(height: 4),
-                            Text('Stok: ${item.stock}'),
-                            const SizedBox(height: 4),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Icon(Icons.star,
-                                    color: Colors.orange, size: 16),
-                                Text(item.rating.toString()),
+                                Text('Stock: ${item.stock}'),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.star, color: Colors.amber, size: 16),
+                                    Text('${item.rating}'),
+                                  ],
+                                ),
                               ],
                             ),
                           ],
